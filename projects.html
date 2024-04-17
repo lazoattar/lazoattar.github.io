@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <link rel="stylesheet" href="styles.css">
+    <title>Lazo Attar</title>
+  </head>
+  <body>
+  <table class="main">
+    <tr>
+      <td class="vsep">
+      </td>
+    </tr>
+    <tr>
+      <td class="full">
+      </td>
+    </tr>
+    
+    <table>
+    <tr>
+    <td class="menu">
+      <table>
+        <tr>
+          <td>
+            <div class="vertical-menu">
+              <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="resume.html">Resume</a></li>
+                <li><a href="projects.html">Projects</a></li>
+              </ul>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </td>
+
+    <td class="hsep">
+    </td>
+
+    <td>
+      <h1>Projects</h1>
+      <h2>SDR RF Frontend | ECE 1100 Discovery Project</h2>
+      <h3>Introduction</h3>
+      <p>
+      This project focuses on developing an RF frontent evaluation module for a 
+      software-defined radio (SDR), which is to be built in the future. The goal
+      of this project is to enable wideband full-duplex communication across 
+      a channel.
+      </p>
+
+      <h3>IQ Modulation and Demodulation</h3>
+      <p>
+      The RF frontend I want to design revolves around the zero-if (ZIF)
+      architecture. The receiver must tune to the carrier frequency of the
+      transmitted signal to mix it down to baseband and proceed with the
+      processing required to extract the wanted information.
+      </p>
+      <p>
+      Many ZIF architectures employ the use of IQ modulation and demodulation.
+      The sum of two ampltiude modulated signals in quadrature (e.g cosine and
+      sine) allows the implementation of almost any modulation technique at
+      the output. This architecture also enables the decomposition of a
+      modulated signal into easy to process baseband in-phase and quadrature
+      signals, identical to the ones used to produce the transmitted signal.
+      </p>
+      <img src="iq-mod-demod.png" width="100%">
+      <p>
+      Using an IQ modulator IC and an IQ demodulator IC from Analog Devices is
+      optimal since standalone mixers or connectorized components were much more
+      expensive. 
+      </p>
+      <h3>Schematic</h3>
+      <p>
+      The RF frontend was designed in Altium and below is the schematic of the
+      entire system, consisting of the two Analog Devices modulator and
+      demodulator ICs and other passive components either necessary for
+      operation or included for hardware configurability.
+      </p>
+      <img src="rf-schematic.png" width="100%">
+      <h3>Manufacturing</h3>
+      <p>
+      The PCB was ordered from a chinese manufacturer and was assembled by me.
+      I learned how to solder small SMD components by hand to be able to solder
+      the QFN packages for the RF ICs and the 0402 and 0603 passive components.
+      </p>
+      <img src="img/manufactured-pcb.jpg" width="100%">
+      <img src="img/assembled-pcb.jpg" width="100%">
+      <h3>Transmission Line Characterization</h3>
+      All transmission lines on the PCB were designed as 50 ohm coplanar 
+      waveguides. A test transmission line was included on the very right of the
+      circuit board to obtain its s-parameters. Using a network analyzer at the
+      Hive Makerspace, the s-parameters were easily found and acquired shown
+      below.
+      <img src="img/s21.jpg" width="100%">
+      <img src="img/s11.jpg" width="100%">
+      The results weren't too great since the dielectric material between the
+      top RF signal layer and its reference ground layer is FR4, which is not
+      very suitable for high frequency applications. However, it seems like
+      up to around 2 GHz the s-parameters are decent.
+      <h3>Conclusion</h3>
+      This taught me about IQ modulation and demodulation, RF impedance control, 
+      RF PCB design, and SMD soldering. The future for this project is to
+      develop a complete software-defined radio with the used RF ICs to
+      implement a variety of digital communication waveforms and possibly GPS
+      signal processing.
+    </td>
+    </table>
+  </table>  
+  </body>
+</html>
